@@ -1,5 +1,9 @@
 parameters:
-
+	doctrine:
+		host: ''
+		user: ''
+		password: ''
+		dbname: ''
 
 application:
 	errorPresenter: Error
@@ -19,6 +23,13 @@ di:
 extensions:
 	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
 	migrations: Nextras\Migrations\Bridges\NetteDI\MigrationsExtension
+	doctrine.annotations: Nettrine\Annotations\DI\AnnotationsExtension
+	doctrine.dbal: Nettrine\DBAL\DI\DbalExtension
+	doctrine.dbal.console: Nettrine\DBAL\DI\DbalConsoleExtension
+	doctrine.orm: Nettrine\ORM\DI\OrmExtension
+	doctrine.orm.annotations: Nettrine\ORM\DI\OrmAnnotationsExtension
+	doctrine.orm.console: Nettrine\ORM\DI\OrmConsoleExtension
+	doctrine.cache: Nettrine\Cache\DI\CacheExtension
 
 console:
 	name: Nette project
@@ -36,4 +47,23 @@ database:
 migrations:
 	dir: %appDir%/../migrations
 	driver: mysql
-	dbal: nette
+	dbal: doctrine
+
+doctrine.orm:
+	configuration:
+		autoGenerateProxyClasses: true
+		proxyDir: %tempDir%/proxies
+
+doctrine.orm.annotations:
+	mapping:
+		App\Model: %appDir%/Model
+
+doctrine.dbal:
+	debug:
+		panel: %debugMode%
+	connection:
+		driver: pdo_mysql
+		host: %doctrine.host%
+		user: %doctrine.user%
+		password: %doctrine.password%
+		dbname: %doctrine.dbname%
