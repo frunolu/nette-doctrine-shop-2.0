@@ -7,3 +7,19 @@ services:
     volumes:
       - ./project:/project
       - ./config/php.ini:/usr/local/etc/php/conf.d/custom-php.ini
+
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:10.3.30-focal
+    restart: always
+    environment:
+      MYSQL_DATABASE: mydb
+      MYSQL_ROOT_PASSWORD: toor
+      TZ: Europe/Prague
+    volumes:
+      - ./config/mysql.cnf:/etc/mysql/conf.d/local.cnf
+      - ./data/db:/var/lib/mysql
+    ports:
+      - '3308:3306'

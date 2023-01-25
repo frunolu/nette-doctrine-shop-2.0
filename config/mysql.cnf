@@ -1,0 +1,16 @@
+[mysqld]
+collation-server = utf8mb4_general_ci
+character-set-server = utf8mb4
+skip-character-set-client-handshake
+sql-mode = ""
+innodb_page_size=64k
+innodb_log_buffer_size=32M
+innodb_buffer_pool_size=512M
+wait_timeout=28800
+interactive_timeout=28800
+
+[client]
+default-character-set = utf8mb4
+
+[mysql]
+default-character-set = utf8mb4
