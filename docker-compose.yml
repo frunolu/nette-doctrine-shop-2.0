@@ -23,3 +23,15 @@ services:
       - ./data/db:/var/lib/mysql
     ports:
       - '3308:3306'
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    links:
+      - db:db
+    environment:
+      - ADMINER_DESIGN=nette
+    volumes:
+      - ./config/adminer.ini:/usr/local/etc/php/conf.d/uploads.ini
