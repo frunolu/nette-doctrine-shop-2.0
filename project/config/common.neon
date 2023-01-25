@@ -15,3 +15,14 @@ di:
 	export:
 		parameters: no
 		tags: no
+
+extensions:
+	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+
+console:
+	name: Nette project
+	version: '1.0'
+	catchExceptions: true
+	autoExit: true
+	url: http://nette-shop:90/
+	lazy: false
