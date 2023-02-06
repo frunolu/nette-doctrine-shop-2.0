@@ -42,6 +42,7 @@ final class ProductPresenter extends Nette\Application\UI\Presenter
         $this->template->setParameters([
             'productId' => $this->product->getId(),
             'productName' => $this->product->getName(),
+            'productShortDescription' => $this->product->getShortDescription(),
         ]);
     }
 
