@@ -10,12 +10,14 @@ use Nette\Application\Routers\RouteList;
 
 final class RouterFactory
 {
-	use Nette\StaticClass;
+    use Nette\StaticClass;
 
-	public static function createRouter(): RouteList
-	{
-		$router = new RouteList;
-		$router->addRoute('<presenter>/<action>[/<id>]', 'Homepage:default');
-		return $router;
-	}
+    public static function createRouter(): RouteList
+    {
+        $router = new RouteList;
+        $router->addRoute('<slug [a-z-]+>', 'Category:default');
+        $router->addRoute('<presenter>/<action>[/<id>]', 'Homepage:default');
+
+        return $router;
+    }
 }
