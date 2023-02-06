@@ -16,6 +16,7 @@ final class RouterFactory
 	{
 		$router = new RouteList;
         $router->addRoute('<slug [a-z-]+>','Category:default');
+        $router->addRoute('product/<slug [a-z-]+>','Product:default');
 		$router->addRoute('<presenter>/<action>[/<id>]', 'Homepage:default');
 		return $router;
 	}
