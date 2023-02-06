@@ -9,3 +9,4 @@ search:
 services:
 	- App\Router\RouterFactory::createRouter
 	- App\Model\Category\CategoryRepository
+	- App\Model\Product\ProductRepository
