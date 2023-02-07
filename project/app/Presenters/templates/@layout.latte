@@ -34,15 +34,9 @@
 			</div>
 		</div>
 	</header>
-	<div class="nav-scroller py-1 mb-2">
-		<nav class="nav d-flex justify-content-between">
-			<a class="p-2 link-secondary" n:href="Category:default, slug:pekarna-cukrarna">Pekárna a cukrárna</a>
-			<a class="p-2 link-secondary" n:href="Category:default, slug:ovoce-a-zelenina">Ovoce a zelenina</a>
-			<a class="p-2 link-secondary" n:href="Category:default, slug:maso-a-ryby">Maso a ryby</a>
-			<a class="p-2 link-secondary" n:href="Category:default, slug:mlecne-a-chlazene">Mléčné a chlazené</a>
-			<a class="p-2 link-secondary" n:href="Category:default, slug:napoje">Nápoje</a>
-		</nav>
-	</div>
+
+{control mainMenu}
+
 </div>
 
 <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
