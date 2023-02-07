@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Presenters;
 
-use Nette\Application\UI\Presenter;
-
-final class CategoryPresenter extends Presenter
+final class CategoryPresenter extends BasePresenter
 {
 
 }
