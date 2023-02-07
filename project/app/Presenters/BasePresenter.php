@@ -14,7 +14,16 @@ class BasePresenter extends Presenter
      */
     public function createComponentMainMenu(): MainMenu
     {
-        return new MainMenu();
+        $links = [
+            [
+                'url' => 'pekarna-cukrarna',
+                'name' => 'Pekárna a cukrárna'
+            ],
+            [
+                'url' => 'maso-a-ryby',
+                'name' => 'Maso a ryby'
+            ]
+        ];
+        return new MainMenu($links);
     }
-
 }
