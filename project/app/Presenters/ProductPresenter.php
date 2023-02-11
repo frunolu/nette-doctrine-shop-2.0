@@ -42,6 +42,7 @@ final class ProductPresenter extends BasePresenter
         $this->template->setParameters([
             'productId' => $this->product->getId(),
             'productName' => $this->product->getName(),
+            'productShortDescription' => $this->product->getShortDescription(),
         ]);
     }
 
