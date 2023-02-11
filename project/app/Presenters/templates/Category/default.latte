@@ -2,4 +2,9 @@
     <div>
         <h1 n:block=title>{$categoryId} - {$categoryName}</h1>
     </div>
+    <div n:foreach="$products as $product">
+        <p class="card-text">
+            <a class="nav-link" href="{link Product:default $product->getUrl()}">{$product->getName()}</a>
+        </p>
+    </div>
 {/block}
