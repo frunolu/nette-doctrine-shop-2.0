@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Model\Category;
 
+use App\Model\Product\Product;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -49,6 +50,17 @@ class Category
      * @ORM\OneToMany(targetEntity="App\Model\Category\Category", mappedBy="parent")
      */
     private Collection $children;
+
+    /**
+     * @var Product[]|Collection
+     * @ORM\ManyToMany(targetEntity="App\Model\Product\Product", inversedBy="categories")
+     * @ORM\JoinTable(
+     *     name="product_category",
+     *     joinColumns={@ORM\JoinColumn(name="category_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="product_id", referencedColumnName="id")}
+     *)
+     */
+    private Collection $products;
 
     /**
      * @ORM\Column(name="name", type="string", nullable=false)
@@ -118,8 +130,23 @@ class Category
 
     public function addChild(Category $category): void
     {
-        if ($this->children->contains ($category) === false) {
-            $this->children->add ($category);
+        if ($this->children->contains($category) === false) {
+            $this->children->add($category);
+        }
+    }
+
+    /**
+     * @return Product[]|Collection
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Product $product): void
+    {
+        if ($this->products->contains($product) === false) {
+            $this->children->add($product);
         }
     }
 
@@ -168,4 +195,3 @@ class Category
         $this->deleted = $deleted;
     }
 }
-
