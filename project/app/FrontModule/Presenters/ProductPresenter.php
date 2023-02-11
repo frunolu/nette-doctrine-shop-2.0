@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Presenters;
+namespace App\FrontModule\Presenters;
 
 use App\Model\Product\Product;
 use App\Model\Product\ProductNotFoundException;
 use App\Model\Product\ProductRepository;
-use Nette;
+use App\Presenters\BasePresenter;
 use Nette\Application\BadRequestException;
 
 final class ProductPresenter extends BasePresenter

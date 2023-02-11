@@ -15,9 +15,13 @@ final class RouterFactory
 	public static function createRouter(): RouteList
 	{
 		$router = new RouteList;
-        $router->addRoute('<slug [a-z-]+>','Category:default');
-        $router->addRoute('product/<slug [a-z-]+>','Product:default');
-		$router->addRoute('<presenter>/<action>[/<id>]', 'Homepage:default');
+        $router[] = $frontRouter = new RouteList('Front');
+        $frontRouter->addRoute('','Homepage:default');
+        $frontRouter->addRoute('<slug [a-z-]+>','Category:default');
+        $frontRouter->addRoute('product/<slug [a-z-]+>','Product:default');
+//        $router->addRoute('<slug [a-z-]+>','Category:default');
+//        $router->addRoute('product/<slug [a-z-]+>','Product:default');
+//		$router->addRoute('<presenter>/<action>[/<id>]', 'Homepage:default');
 		return $router;
 	}
 }

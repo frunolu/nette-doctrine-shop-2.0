@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Presenters;
+namespace App\FrontModule\Presenters;
 
 use App\Model\Category\Category;
 use App\Model\Category\CategoryNotFoundException;
 use App\Model\Category\CategoryRepository;
-use Nette;
+use App\Presenters\BasePresenter;
 use Nette\Application\BadRequestException;
 
 
