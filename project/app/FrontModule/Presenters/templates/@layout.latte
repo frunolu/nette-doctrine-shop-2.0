@@ -30,7 +30,20 @@
 					</svg>
 				</a>
 				<a class="btn btn-sm btn-outline-secondary" href="/kosik">Košík</a>
-				<a class="btn btn-sm btn-outline-secondary" href="/prihlaseni">Přihlásit se</a>
+				{if $user->isLoggedIn()   }               <a class="nav-link px-3" n:href="Sign:out"> | Sign out</a>{else}
+				{*                <div class="dropdown">*}
+				{*                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"*}
+				{*                            data-bs-toggle="dropdown" aria-expanded="false">*}
+				{*                        Přihlásit se*}
+				{*                    </button>*}
+				{*                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">*}
+				{*                        <li><a class="dropdown-item" href="/sign">Přihlásit se</a></li>*}
+				{*                        <li><a class="dropdown-item" href="/sign-up">Registrovat se</a></li>*}
+				{*                    </ul>*}
+			</div>
+			<a class="nav-link px-3" n:href="Sign:in"> | Sign in</a>
+		</div>
+		{/if}
 			</div>
 		</div>
 	</header>
