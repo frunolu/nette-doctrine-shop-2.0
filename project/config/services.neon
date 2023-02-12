@@ -11,3 +11,4 @@ services:
 	- App\Model\Category\CategoryRepository
 	- App\Model\Product\ProductRepository
 	- App\Model\User\UserRepository
+	Authenticator: App\Model\Authenticator
