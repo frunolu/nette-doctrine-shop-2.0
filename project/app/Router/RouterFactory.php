@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Router;
 
 use Nette;
+use Nette\Application\Routers\Route;
 use Nette\Application\Routers\RouteList;
 
 
@@ -15,6 +16,8 @@ final class RouterFactory
 	public static function createRouter(): RouteList
 	{
 		$router = new RouteList;
+        $router[] = $adminRouter = new RouteList('Admin');
+        $adminRouter[] = new Route('administration/<presenter>/<action>[/<id>]', 'Homepage:default');
         $router[] = $frontRouter = new RouteList('Front');
         $frontRouter->addRoute('sign/in','Sign:in');
         $frontRouter->addRoute('sign/up','Sign:up');
