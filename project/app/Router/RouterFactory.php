@@ -16,6 +16,8 @@ final class RouterFactory
 	{
 		$router = new RouteList;
         $router[] = $frontRouter = new RouteList('Front');
+        $frontRouter->addRoute('sign/in','Sign:in');
+        $frontRouter->addRoute('sign/up','Sign:up');
         $frontRouter->addRoute('','Homepage:default');
         $frontRouter->addRoute('<slug [a-z-]+>','Category:default');
         $frontRouter->addRoute('product/<slug [a-z-]+>','Product:default');
