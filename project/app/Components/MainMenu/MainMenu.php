@@ -33,8 +33,9 @@ class MainMenu extends Control
     public function addLink(string $url, string $name): void
     {
         $this->links[] = [
-            'name' => $name,
             'url' => $url,
+            'name' => $name,
+
         ];
     }
 
