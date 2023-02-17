@@ -11,7 +11,7 @@ class MainMenu extends Control
     /**
      * @var array
      */
-    private array $links;
+    private array $links = [];
 
     /**
      * @param array<array{url:string, key:string}> $links
@@ -33,8 +33,9 @@ class MainMenu extends Control
     public function addLink(string $url, string $name): void
     {
         $this->links[] = [
-            'name' => $name,
             'url' => $url,
+            'name' => $name,
+
         ];
     }
 
