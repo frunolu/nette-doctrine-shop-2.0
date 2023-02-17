@@ -69,4 +69,9 @@ class BaseRepository
     {
         return $this->entityManager->getRepository($this->getEntityName ())->findAll();
     }
+
+    public function getEntityManager(): EntityManagerInterface
+    {
+        return $this->entityManager;
+    }
 }
