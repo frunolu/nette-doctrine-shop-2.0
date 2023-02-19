@@ -1,0 +1,25 @@
+{extends 'layout.latte'}
+
+{block content}
+    <h1>Place Order</h1>
+
+    {if $error}
+        <div class="alert alert-danger">
+            {$error}
+        </div>
+    {/if}
+
+    {form orderForm}
+        {input productId}
+        {input quantity}
+        {input customerName}
+        {input customerEmail}
+        {input customerPhone}
+        {input customerAddress}
+        {input customerCity}
+        {input customerZip}
+        {input customerCountry}
+
+        {button submit /}
+    {/form}
+{/block}
