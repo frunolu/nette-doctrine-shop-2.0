@@ -2,27 +2,30 @@
 
 namespace App\FrontModule\Presenters;
 
+use App\Model\Cart\CartRepository;
+use App\Presenters\BasePresenter;
+
 class CartPresenter extends BasePresenter
 {
-    /** @var CartManager @inject */
-    public $cartManager;
+    /** @var CartRepository @inject */
+    public $cartRepository;
 
     public function renderDefault()
     {
-        $this->template->items = $this->cartManager->getItems();
-        $this->template->total = $this->cartManager->getTotal();
+        $this->template->items = $this->cartRepository->getItems();
+        $this->template->total = $this->cartRepository->getTotal();
     }
 
     public function handleRemove($id)
     {
-        $this->cartManager->removeItem($id);
+        $this->cartRepository->removeItem($id);
         $this->flashMessage('Product has been removed from cart.');
         $this->redirect('this');
     }
 
     public function handleClear()
     {
-        $this->cartManager->clear();
+        $this->cartRepository->clear();
         $this->flashMessage('Cart has been cleared.');
         $this->redirect('this');
     }
@@ -31,7 +34,7 @@ class CartPresenter extends BasePresenter
     {
         $form = new \Nette\Application\UI\Form;
 
-        foreach ($this->cartManager->getItems() as $item) {
+        foreach ($this->cartRepository->getItems() as $item) {
             $productId = $item['product']->getId();
             $form->addInteger("quantity_$productId", $item['product']->getName())
                 ->setDefaultValue($item['quantity'])
@@ -51,7 +54,7 @@ class CartPresenter extends BasePresenter
         foreach ($values as $name => $quantity) {
             if (strpos($name, 'quantity_') === 0) {
                 $productId = substr($name, strlen('quantity_'));
-                $this->cartManager->addItem($productId, $quantity);
+                $this->cartRepository->addItem($productId, $quantity);
             }
         }
 
