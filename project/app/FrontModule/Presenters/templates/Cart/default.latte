@@ -1,0 +1,39 @@
+{include content}
+<h1>Cart</h1>
+
+{if $items}
+<table>
+    <thead>
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {foreach $items as $item}
+        <tr>
+            <td>{$item.product.name}</td>
+            <td>{$item.product.price} Kč</td>
+            <td>{$item.quantity}</td>
+            <td>{$item.total} Kč</td>
+            <td>
+                <a href="{link 'remove!', id => $item.product.id}" class="remove">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    {/foreach}
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3">Total:</td>
+        <td>{$total} Kč</td>
+        <td>
+            <a href="{link 'clear!'}" class="remove">
+                <i class="fa fa-trash"></i>
+            </a>
+        </td>
+    </tr>
