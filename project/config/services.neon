@@ -12,6 +12,8 @@ services:
 	- App\Model\Product\ProductRepository
 	- App\Model\User\UserRepository
 	- App\Model\Cart\CartItemRepository
+	- App\Model\Order\OrderRepository
+	- App\Model\Cart\CartRepository
 	Authenticator: App\Model\Authenticator
 	app.cartItemRepository:
 		type: App\Model\Cart\CartItemRepository
