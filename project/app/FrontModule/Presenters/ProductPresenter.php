@@ -46,4 +46,12 @@ final class ProductPresenter extends BasePresenter
         ]);
     }
 
+    public function actionAddToCart($id)
+    {
+        $this->cartManager->addItem($id);
+
+        $this->flashMessage('Product has been added to cart.');
+        $this->redirect('this');
+    }
+
 }
