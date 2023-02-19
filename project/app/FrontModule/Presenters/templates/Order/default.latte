@@ -1,0 +1,14 @@
+{include content}
+<h1>Orders</h1>
+
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Customer name</th>
+        <th>Total</th>
+    </tr>
+    {foreach $orders as $order}
+    <tr>
+        <td>{$order->date->format('Y-m-d H:i:s')}</td>
+        <td>{$order->customerName}</td>
+        <td>{$order->total} €</td>
