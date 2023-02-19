@@ -9,12 +9,22 @@ use Nette\Application\UI\Form;
 
 class OrderPresenter extends BasePresenter
 {
-    protected OrderRepository $orderRepository;
-
+    /**
+     * @var OrderRepository
+     * @inject
+     */
+    public OrderRepository $orderRepository;
     public function __construct(OrderRepository $orderRepository)
     {
         parent::__construct();
         $this->orderRepository = $orderRepository;
+    }
+
+
+    public function renderDefault()
+    {
+        $this->template->orders = $this->orderRepository->findAllOrdered();
+        $this->template->totalRevenue = $this->orderRepository->getTotalRevenue();
     }
 
 
