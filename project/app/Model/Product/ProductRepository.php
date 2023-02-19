@@ -8,6 +8,10 @@ use App\Model\BaseRepository;
 class ProductRepository extends BaseRepository
 {
 
+    public function getProductById(mixed $productId)
+    {
+    }
+
     protected function getEntityName(): string
     {
         return Product::class;
