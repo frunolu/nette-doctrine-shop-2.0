@@ -11,19 +11,20 @@ services:
 	- App\Model\Category\CategoryRepository
 	- App\Model\Product\ProductRepository
 	- App\Model\User\UserRepository
+	- App\Model\Cart\CartItemRepository
 	Authenticator: App\Model\Authenticator
-    app.cartItemRepository:
-        class: App\Repositories\CartItemRepository
-        factory: ['@doctrine.orm.entityManager', 'getRepository']
-        arguments:
-            - App\Entities\CartItem
-    app.orderRepository:
-        class: App\Repositories\OrderRepository
-        factory: ['@doctrine.orm.entityManager', 'getRepository']
-        arguments:
-            - App\Entities\Order
-    app.orderItemRepository:
-        class: App\Repositories\OrderItemRepository
-        factory: ['@doctrine.orm.entityManager', 'getRepository']
-        arguments:
-            - App\Entities\OrderItem
+	app.cartItemRepository:
+		type: App\Model\Cart\CartItemRepository
+		factory: ['@doctrine.orm.entityManager', 'getRepository']
+		arguments:
+			- App\Model\Cart\CartItem
+	app.orderRepository:
+		type: App\Model\Order\OrderRepository
+		factory: ['@doctrine.orm.entityManager', 'getRepository']
+		arguments:
+			- App\Model\Order\Order
+	app.orderItemRepository:
+		type: App\Model\Order\OrderItemRepository
+		factory: ['@doctrine.orm.entityManager', 'getRepository']
+		arguments:
+			- App\Model\Order\OrderItem
