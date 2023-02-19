@@ -9,6 +9,14 @@ use Nette\Application\UI\Presenter;
 
 class BasePresenter extends Presenter
 {
+    protected function beforeRender()
+    {
+        parent::beforeRender();
+
+        if (!$this->session->hasSection('cart')) {
+            $this->session->setSection('cart', []);
+        }
+    }
     /**
      * @return MainMenu
      */
