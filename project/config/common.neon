@@ -1,9 +1,10 @@
+# Host Config
 parameters:
 	doctrine:
-		host: ''
-		user: ''
-		password: ''
-		dbname: ''
+		host: '127.0.0.1'
+		dbname: 'mydb'
+		user: 'root'
+		password: 'toor'
 
 application:
 	errorPresenter: Error
